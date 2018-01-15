@@ -18,7 +18,7 @@ public class YourTurn : MonoBehaviour
         hand = yourHand.GetComponent<YourHand>();
     }
 
-    void initiateChooseCards()
+    public void initiateChooseCards()
     {
         hand.chooseCards();
     }

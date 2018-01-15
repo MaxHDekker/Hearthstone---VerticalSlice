@@ -53,6 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\AiTurn.cs" />
      <Compile Include="Assets\Card.cs" />
+     <Compile Include="Assets\CardDatabase.cs" />
      <Compile Include="Assets\CardDisplay.cs" />
      <Compile Include="Assets\Deck.cs" />
      <Compile Include="Assets\Draggable.cs" />

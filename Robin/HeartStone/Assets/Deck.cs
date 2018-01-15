@@ -5,27 +5,37 @@ using UnityEngine;
 public class Deck : MonoBehaviour {
 
     [SerializeField]
-    private GameObject[] cards = new GameObject[30];
-    private int count = 0;
+    List<Card> cards = new List<Card>();
+    [SerializeField]
+    private CardDatabase cardLibrary;
 
-    public void Add(GameObject card)
+    void Start()
     {
-        cards[count] = card;
-        count++;
+        for (var i = 0; i < 30; i++)
+        {
+            Add(cardLibrary.GetRandomCardFromDatabase());
+        }
     }
-    public GameObject GetTopDeck()
+    public void Add(Card card)
     {
-        count--;
-        return cards[count];
+        cards.Add(card);
     }
+
+    public Card GetTopDeck()
+    {
+        var topCard = cards[cards.Count - 1];
+        cards.RemoveAt(cards.Count - 1);
+        return topCard;
+    }
+
     void Shuffle()
     {
-        for (int t = 0; t < cards.Length; t++)
+        for (int i = 0; i < cards.Count; i++)
         {
-            GameObject tmp = cards[t];
-            int r = Random.Range(t, cards.Length);
-            cards[t] = cards[r];
-            cards[r] = tmp;
+            Card temp = cards[i];
+            int randomIndex = Random.Range(i, cards.Count);
+            cards[i] = cards[randomIndex];
+            cards[randomIndex] = temp;
         }
     }
 

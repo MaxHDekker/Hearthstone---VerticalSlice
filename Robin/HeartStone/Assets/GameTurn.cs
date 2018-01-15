@@ -27,12 +27,13 @@ public class GameTurn : MonoBehaviour {
             yourTurn.firstTurn = false;
             aiTurn.firstTurn = true;
         }
+        print(yourTurn.firstTurn);
         StartCoroutine(chooseHand());
     }
     IEnumerator chooseHand()
     {
-
-
+        yourTurn.initiateChooseCards();
+        print("choosing hand");
         yield return new WaitForSeconds(30);
 
         StartCoroutine(Turn());
@@ -40,6 +41,8 @@ public class GameTurn : MonoBehaviour {
     IEnumerator Turn()
     {
         yourTurn.myTurn = true;
+
+        print("normalTurn");
 
         yield return new WaitForSeconds(60);
 
@@ -52,6 +55,7 @@ public class GameTurn : MonoBehaviour {
 
     void SwitchTurns()
     {
+        print("switching");
         player1Turn = !player1Turn;
     }
 
