@@ -140,10 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30706cc9e0edcc744b16930bce49ea64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choosableCards:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  choosableCards: []
   deck: {fileID: 1052804950}
 --- !u!224 &218871859
 RectTransform:
