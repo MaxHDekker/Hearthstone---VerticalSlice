@@ -5,7 +5,7 @@ using UnityEngine;
 public class Deck : MonoBehaviour {
 
     [SerializeField]
-    List<Card> cards = new List<Card>();
+    public List<Card> cards = new List<Card>();
     [SerializeField]
     private CardDatabase cardLibrary;
 
@@ -23,8 +23,8 @@ public class Deck : MonoBehaviour {
 
     public Card GetTopDeck()
     {
-        var topCard = cards[cards.Count - 1];
-        cards.RemoveAt(cards.Count - 1);
+        var topCard = cards[0];
+        cards.RemoveAt(0);
         return topCard;
     }
 

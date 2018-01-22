@@ -32,9 +32,11 @@ public class GameTurn : MonoBehaviour {
     }
     IEnumerator chooseHand()
     {
-        yourTurn.initiateChooseCards();
+        yourTurn.InitiateChooseCards();
         print("choosing hand");
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(10);
+
+        yourTurn.ChosenCards();
 
         StartCoroutine(Turn());
     }
