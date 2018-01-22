@@ -7,7 +7,7 @@ public class Card : ScriptableObject {
 	public string description;
     public string race;
 
-    public bool legandary;
+    public bool legendary;
 
 	public Sprite artwork;
 

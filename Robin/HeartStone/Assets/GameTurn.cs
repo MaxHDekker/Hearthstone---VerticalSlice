@@ -19,36 +19,45 @@ public class GameTurn : MonoBehaviour {
 
         if(Random.value > 0.5f)
         {
+            player1Turn = true;
             yourTurn.firstTurn = true;
             aiTurn.firstTurn = false;
         }
         else
         {
+            player1Turn = false;
             yourTurn.firstTurn = false;
             aiTurn.firstTurn = true;
         }
         print(yourTurn.firstTurn);
-        StartCoroutine(chooseHand());
+        StartCoroutine(ChooseHand());
     }
-    IEnumerator chooseHand()
+    IEnumerator ChooseHand()
     {
         yourTurn.InitiateChooseCards();
         print("choosing hand");
+
         yield return new WaitForSeconds(10);
 
         yourTurn.ChosenCards();
         yourTurn.hand.cardDeck.Shuffle();
+        yourTurn.hand.choosableCards.Clear();
+        yourTurn.hand.choosableCardsGO.Clear();
         StartCoroutine(Turn());
     }
     IEnumerator Turn()
     {
-        yourTurn.myTurn = true;
-
+        if(player1Turn)
+        {
+            yourTurn.InitiateNormalTurn();
+        }
+        else
+        {
+            print("enemyTurn");
+        }
         print("normalTurn");
 
         yield return new WaitForSeconds(60);
-
-        yourTurn.myTurn = false;
 
         SwitchTurns();
 

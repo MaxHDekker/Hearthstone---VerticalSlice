@@ -5,17 +5,17 @@ using UnityEngine;
 public class YourHand : MonoBehaviour
 {
     public List<Card> cardsInHand = new List<Card>();
+    public List<GameObject> cardsInHandGO = new List<GameObject>();
+
     public List<Card> choosableCards = new List<Card>();
-    public List<GameObject> cardsChosen = new List<GameObject>();
+    public List<GameObject> choosableCardsGO = new List<GameObject>();
 
     public GameObject deck;
     public GameObject cardPrefab;
     public GameObject canvas;
+    public Deck cardDeck;
     private RectTransform canvasTransform;
     private CardDisplay cardDisplay;
-    private Deck cardDeck;
-
- 
 
     void Start()
     {
@@ -28,9 +28,9 @@ public class YourHand : MonoBehaviour
         choosableCards.Add(cardDeck.GetTopDeck());
         GameObject cards = MakeCard(choosableCards[i]);
         RectTransform transformCard = cards.GetComponent<RectTransform>();
-        transformCard.position = new Vector3(ChoosePlacement(amountCards, i), canvasTransform.rect.height / 2, 0);
+        transformCard.position = (ChoosePlacement(amountCards, transformCard.rect.width , i));
         cards.AddComponent<Choose>();
-        cardsChosen.Add(cards);
+        choosableCardsGO.Add(cards);
     }
 
     GameObject MakeCard(Card card)
@@ -42,32 +42,46 @@ public class YourHand : MonoBehaviour
         return cards;
     }
 
-    public void ChosenCardBack(int i)
+    public void ChosenCardBack(int amountcards, int i)
     {
-        if (cardsChosen[i].GetComponent<Choose>().keep) 
+        if (choosableCardsGO[i].GetComponent<Choose>().keep) 
         {
-                cardsInHand.Add(choosableCards[i]);
+            cardsInHand.Add(choosableCards[i]);
+            cardsInHandGO.Add(choosableCardsGO[i]);
         }
         else
         {
-                cardDeck.cards.Add(choosableCards[i]);
+            cardDeck.cards.Add(choosableCards[i]);
+            Destroy(choosableCardsGO[i]);
         }
     }
-    private float ChoosePlacement(float amountCards, int i)
+    public void CardToHand(int i, int amountCards)
     {
-        float pos;
-        float offset = 100;
-        float middleScreen = (canvasTransform.rect.width / 2);
-        float deelbaar = (amountCards % 2);
+        RectTransform transformCard = cardsInHandGO[i].GetComponent<RectTransform>();
+        transformCard.position = (HandPlacement(i, amountCards));
+    }
 
-        if(deelbaar == 1)
-        {
-            pos = (middleScreen) + (0) - (i*offset);
-        }
-        else
-        {
-            pos = (middleScreen - offset / 2) + (0) - (i*offset);
-        }
+    Vector2 ChoosePlacement(float amountCards,float cardWidth, int i)
+    {
+        Vector2 pos;
+        float offset = 30;
+        float middleScreenWidth = (canvasTransform.rect.width / 2);
+        float middleScreenHeight = canvasTransform.rect.height / 2;
+
+        pos.x = (middleScreenWidth - (offset + cardWidth) / 2) - (i * (offset + cardWidth)) + ((offset + cardWidth) / 2 * amountCards);
+        pos.y = middleScreenHeight;
+
+        return pos;
+    }
+
+    Vector2 HandPlacement(float amountCards, int i)
+    {
+        Vector2 pos;
+        float offset = 20;
+        float middleScreen = (canvasTransform.rect.width / 2);
+
+        pos.x = (middleScreen - (offset) / 2) - (i * (offset)) + ((offset) / 2 * amountCards);
+        pos.y = canvasTransform.rect.width / 8;
 
         return pos;
     }
@@ -75,5 +89,7 @@ public class YourHand : MonoBehaviour
     public void TakeCard()
     {
         cardsInHand.Add(cardDeck.GetTopDeck());
+        GameObject card = MakeCard(cardsInHand[cardsInHand.Count - 1]);
+        cardsInHandGO.Add(card);
     }
 }

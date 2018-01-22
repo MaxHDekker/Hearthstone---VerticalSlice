@@ -12,7 +12,7 @@ public class YourTurn : MonoBehaviour
     public bool myTurn = false;
 
     private int manaCrystals;
-    private int amountCards;
+    public int amountCards;
 
     void Start()
     {
@@ -39,11 +39,12 @@ public class YourTurn : MonoBehaviour
     {
         for (int i = 0; i < amountCards; i++)
         {
-            hand.ChosenCardBack(i);
+            hand.ChosenCardBack(i, amountCards);
+            hand.CardToHand(i, amountCards);
         }
     }
 
-    void InitiateNormalTurn()
+    public void InitiateNormalTurn()
     {
         manaCrystals += 1;
 

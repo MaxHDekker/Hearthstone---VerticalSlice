@@ -28,7 +28,7 @@ public class Deck : MonoBehaviour {
         return topCard;
     }
 
-    void Shuffle()
+    public void Shuffle()
     {
         for (int i = 0; i < cards.Count; i++)
         {
