@@ -6,12 +6,13 @@ public class YourTurn : MonoBehaviour
 {
     [SerializeField]
     private GameObject yourHand;
-    private YourHand hand;
+    public YourHand hand;
 
     public bool firstTurn;
     public bool myTurn = false;
 
     private int manaCrystals;
+    private int amountCards;
 
     void Start()
     {
@@ -20,12 +21,26 @@ public class YourTurn : MonoBehaviour
 
     public void InitiateChooseCards()
     {
-        hand.ChooseCards(3);
+        if(firstTurn)
+        {
+            amountCards = 3;
+        }
+        else
+        {
+            amountCards = 4;
+        }
+        for (int i = 0; i < amountCards; i++)
+        {
+            hand.ChooseCards(amountCards, i);
+        }
     }
 
     public void ChosenCards()
     {
-        hand.ChosenCardBack(3);
+        for (int i = 0; i < amountCards; i++)
+        {
+            hand.ChosenCardBack(i);
+        }
     }
 
     void InitiateNormalTurn()

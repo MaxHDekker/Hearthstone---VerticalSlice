@@ -18,8 +18,10 @@ public class CardDisplay : MonoBehaviour
 	public Text healthText;
 
 	// Use this for initialization
-	void Start () {
-		nameText.text = card.name;
+	public void Setup(Card card)
+    {
+        this.card = card;
+  		nameText.text = card.name;
 		descriptionText.text = card.description;
 
 		artworkImage.sprite = card.artwork;

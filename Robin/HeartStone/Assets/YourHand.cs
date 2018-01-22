@@ -6,6 +6,7 @@ public class YourHand : MonoBehaviour
 {
     public List<Card> cardsInHand = new List<Card>();
     public List<Card> choosableCards = new List<Card>();
+    public List<GameObject> cardsChosen = new List<GameObject>();
 
     public GameObject deck;
     public GameObject cardPrefab;
@@ -14,7 +15,7 @@ public class YourHand : MonoBehaviour
     private CardDisplay cardDisplay;
     private Deck cardDeck;
 
-    float[] pos;
+ 
 
     void Start()
     {
@@ -22,45 +23,53 @@ public class YourHand : MonoBehaviour
         canvasTransform = canvas.GetComponent<RectTransform>();
     }
 
-    public GameObject ChooseCards(int amountCards)
+    public void ChooseCards(int amountCards, int i)
     {
-        for (int i = 0; i < amountCards; i++)
-        {
-            choosableCards.Add(cardDeck.GetTopDeck());
-            GameObject cards = Instantiate(cardPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
-            cards.transform.SetParent(this.transform, false);
-            cardDisplay = cards.GetComponent<CardDisplay>();
-            cardDisplay.card = choosableCards[i];
-            RectTransform transformCard = cards.GetComponent<RectTransform>();
-            transformCard.position = new Vector3(i*100, canvasTransform.rect.height/2, 0);
-            cards.AddComponent<Choose>();
-        }
+        choosableCards.Add(cardDeck.GetTopDeck());
+        GameObject cards = MakeCard(choosableCards[i]);
+        RectTransform transformCard = cards.GetComponent<RectTransform>();
+        transformCard.position = new Vector3(ChoosePlacement(amountCards, i), canvasTransform.rect.height / 2, 0);
+        cards.AddComponent<Choose>();
+        cardsChosen.Add(cards);
+    }
+
+    GameObject MakeCard(Card card)
+    {
+        GameObject cards = Instantiate(cardPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+        cards.transform.SetParent(this.transform, false);
+        cardDisplay = cards.GetComponent<CardDisplay>();
+        cardDisplay.Setup(card);
         return cards;
     }
 
-    public void ChosenCardBack(int amountCards)
+    public void ChosenCardBack(int i)
     {
-        for (int i = 0; i <= amountCards; i++)
+        if (cardsChosen[i].GetComponent<Choose>().keep) 
         {
-            print(cards[i]);
-            if (cards[i].GetComponent<Choose>().keep) 
-            {
-//                cardsInHand.Add(choosableCards[i]);
-            }
-            else
-            {
-//                cardDeck.cards.Add(choosableCards[i]);
-            }
+                cardsInHand.Add(choosableCards[i]);
+        }
+        else
+        {
+                cardDeck.cards.Add(choosableCards[i]);
         }
     }
     private float ChoosePlacement(float amountCards, int i)
     {
-        int middleCard;
+        float pos;
+        float offset = 100;
         float middleScreen = (canvasTransform.rect.width / 2);
-        middleCard = Mathf.CeilToInt(amountCards / 2);
+        float deelbaar = (amountCards % 2);
 
-        pos[middleCard] = middleScreen;
-        return pos[i];
+        if(deelbaar == 1)
+        {
+            pos = (middleScreen) + (0) - (i*offset);
+        }
+        else
+        {
+            pos = (middleScreen - offset / 2) + (0) - (i*offset);
+        }
+
+        return pos;
     }
 
     public void TakeCard()

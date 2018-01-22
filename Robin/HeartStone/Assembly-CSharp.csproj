@@ -55,6 +55,7 @@
      <Compile Include="Assets\Card.cs" />
      <Compile Include="Assets\CardDatabase.cs" />
      <Compile Include="Assets\CardDisplay.cs" />
+     <Compile Include="Assets\Choose.cs" />
      <Compile Include="Assets\Deck.cs" />
      <Compile Include="Assets\Draggable.cs" />
      <Compile Include="Assets\DropZone.cs" />

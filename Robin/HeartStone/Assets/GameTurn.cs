@@ -37,7 +37,7 @@ public class GameTurn : MonoBehaviour {
         yield return new WaitForSeconds(10);
 
         yourTurn.ChosenCards();
-
+        yourTurn.hand.cardDeck.Shuffle();
         StartCoroutine(Turn());
     }
     IEnumerator Turn()
