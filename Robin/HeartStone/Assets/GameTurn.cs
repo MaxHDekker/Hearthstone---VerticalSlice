@@ -38,11 +38,9 @@ public class GameTurn : MonoBehaviour {
         print("choosing hand");
 
         yield return new WaitForSeconds(10);
+        
+        yourTurn.CleanChosenCards();
 
-        yourTurn.ChosenCards();
-        yourTurn.hand.cardDeck.Shuffle();
-        yourTurn.hand.choosableCards.Clear();
-        yourTurn.hand.choosableCardsGO.Clear();
         StartCoroutine(Turn());
     }
     IEnumerator Turn()
@@ -57,7 +55,7 @@ public class GameTurn : MonoBehaviour {
         }
         print("normalTurn");
 
-        yield return new WaitForSeconds(60);
+        yield return new WaitForSeconds(20);
 
         SwitchTurns();
 

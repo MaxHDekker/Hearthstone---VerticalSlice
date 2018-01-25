@@ -57,9 +57,9 @@
      <Compile Include="Assets\CardDisplay.cs" />
      <Compile Include="Assets\Choose.cs" />
      <Compile Include="Assets\Deck.cs" />
-     <Compile Include="Assets\Draggable.cs" />
      <Compile Include="Assets\DropZone.cs" />
      <Compile Include="Assets\GameTurn.cs" />
+     <Compile Include="Assets\Playable.cs" />
      <Compile Include="Assets\YourHand.cs" />
      <Compile Include="Assets\YourTurn.cs" />
  <Reference Include="UnityEngine.UI">

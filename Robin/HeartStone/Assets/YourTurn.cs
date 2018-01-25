@@ -11,8 +11,9 @@ public class YourTurn : MonoBehaviour
     public bool firstTurn;
     public bool myTurn = false;
 
-    private int manaCrystals;
+    public int manaCrystals;
     public int amountCards;
+    private int disposedCards;
 
     void Start()
     {
@@ -35,13 +36,23 @@ public class YourTurn : MonoBehaviour
         }
     }
 
-    public void ChosenCards()
+    public void CleanChosenCards()
     {
         for (int i = 0; i < amountCards; i++)
         {
-            hand.ChosenCardBack(i, amountCards);
-            hand.CardToHand(i, amountCards);
+            disposedCards = hand.ChosenCardBack(amountCards, i);
         }
+        for (int i = 0; i < disposedCards; i++)
+        {
+            hand.TakeCard();
+        }
+
+        hand.UpdateHandPlacement();
+
+        hand.cardDeck.Shuffle();
+
+        hand.choosableCards.Clear();
+        hand.choosableCardsGO.Clear();
     }
 
     public void InitiateNormalTurn()

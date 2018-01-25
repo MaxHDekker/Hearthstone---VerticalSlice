@@ -1,0 +1,59 @@
+player1
+{
+	hand
+	{
+		kaarten
+		{
+			vergroten
+			
+		}
+		kaarten op plek houden
+	}
+{
+player2
+{
+	hand
+	{
+		kaarten
+		{
+
+		}
+		kaarten op plek houden
+	}
+}
+
+uitdeler
+{
+	p1Deck
+	P2Deck
+	
+	kaartenmaken
+	kaartpakken
+	decks shuffle
+	kaarten bijstoppen
+}
+
+dropzone
+{
+	minions maken
+	kaarten activeren
+}
+
+klok
+{
+	geeft beurten
+	{
+		kaarten mogen gekozen worden
+		nieuwe kaarten komen
+		(
+		eerste normale beurt
+		switch rollen 
+		)
+	{
+}
+
+kaarten
+{
+	info over kaart
+}
+
