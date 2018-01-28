@@ -11,27 +11,26 @@ public class DropZone : MonoBehaviour
     public List<Card> cardsOnTable = new List<Card>();
     public List<GameObject> cardsOnTableGO = new List<GameObject>();
 
-    private YourTurn playerScript;
-    private YourHand handScript;
+    private Player1 scriptP1;
+
 
     void Start()
     {
-        playerScript = player.GetComponent<YourTurn>();
-        handScript = hand.GetComponent<YourHand>();
+        scriptP1 = player.GetComponent<Player1>();
     }
 
     public void OnDrop(PointerEventData eventData)
     {
         GameObject d = eventData.pointerDrag;
         Playable dScript = d.GetComponent<Playable>();
-        if(d.GetComponent<CardDisplay>().card.manaCost <= playerScript.manaCrystals)
+        if(d.GetComponent<CardDisplay>().card.manaCost <= scriptP1.manaCrystals)
         {
             MakeMinions();
             Destroy(d);
             dScript.GetIndex();
-            handScript.cardsInHandGO.RemoveAt(dScript.originSiblingIndex);
-            handScript.cardsInHand.RemoveAt(dScript.originSiblingIndex);
-            handScript.UpdateHandPlacement();
+            scriptP1.cardsInHandGO.RemoveAt(dScript.originSiblingIndex);
+            scriptP1.cardsInHand.RemoveAt(dScript.originSiblingIndex);
+            scriptP1.UpdateHandPlacement();
         }
     }
 

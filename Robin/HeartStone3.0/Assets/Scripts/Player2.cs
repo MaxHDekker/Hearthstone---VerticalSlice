@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AiTurn : MonoBehaviour
+public class Player2 : MonoBehaviour
 {
     public bool firstTurn;
 }

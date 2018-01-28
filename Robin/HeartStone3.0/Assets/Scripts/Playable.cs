@@ -13,7 +13,6 @@ public class Playable : MonoBehaviour
     private RectTransform rectTransform;
     private Vector2 Location;
     private Vector2 size;
-    private YourHand hand;
 
     public int originSiblingIndex;
     public int Sib;
