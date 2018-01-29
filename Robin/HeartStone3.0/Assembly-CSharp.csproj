@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{79F1370F-189D-AFCA-89F6-FC909F492033}</ProjectGuid>
+    <ProjectGuid>{FB13E7B5-6D43-EDE2-2A8A-59601C1637DD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -51,17 +51,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AiTurn.cs" />
-     <Compile Include="Assets\Card.cs" />
-     <Compile Include="Assets\CardDatabase.cs" />
-     <Compile Include="Assets\CardDisplay.cs" />
-     <Compile Include="Assets\Choose.cs" />
-     <Compile Include="Assets\Deck.cs" />
-     <Compile Include="Assets\DropZone.cs" />
-     <Compile Include="Assets\GameTurn.cs" />
-     <Compile Include="Assets\Playable.cs" />
-     <Compile Include="Assets\YourHand.cs" />
-     <Compile Include="Assets\YourTurn.cs" />
+     <Compile Include="Assets\Scripts\Card.cs" />
+     <Compile Include="Assets\Scripts\CardDatabase.cs" />
+     <Compile Include="Assets\Scripts\CardDisplay.cs" />
+     <Compile Include="Assets\Scripts\Choose.cs" />
+     <Compile Include="Assets\Scripts\Clock.cs" />
+     <Compile Include="Assets\Scripts\DeckManager.cs" />
+     <Compile Include="Assets\Scripts\DropZone.cs" />
+     <Compile Include="Assets\Scripts\Playable.cs" />
+     <Compile Include="Assets\Scripts\Player1.cs" />
+     <Compile Include="Assets\Scripts\Player2.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

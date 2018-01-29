@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player1 : MonoBehaviour
 {
     [Header("Variables")]
+    public int manaCrystalsTotal;
     public int manaCrystals;
     public int choosableCardsAmount;
     public bool myTurn = false;
@@ -73,7 +74,8 @@ public class Player1 : MonoBehaviour
 
     public void InitiateNormalTurn()
     {
-        manaCrystals += 1;
+        manaCrystalsTotal += 1;
+        manaCrystals = manaCrystalsTotal;
 
         deckManager.TakeCard(deck, cardsInHand, cardsInHandGO, this.transform);
         UpdateHandPlacement();
