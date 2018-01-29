@@ -1,7 +1,7 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeartStone3.0", "Assembly-CSharp.csproj", "{FB13E7B5-6D43-EDE2-2A8A-59601C1637DD}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeartStone3.0", "HeartStone3.0.csproj", "{F1AFD151-ACFB-BDC3-C8AC-B1730B023077}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,15 +9,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FB13E7B5-6D43-EDE2-2A8A-59601C1637DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FB13E7B5-6D43-EDE2-2A8A-59601C1637DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FB13E7B5-6D43-EDE2-2A8A-59601C1637DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FB13E7B5-6D43-EDE2-2A8A-59601C1637DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1AFD151-ACFB-BDC3-C8AC-B1730B023077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1AFD151-ACFB-BDC3-C8AC-B1730B023077}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1AFD151-ACFB-BDC3-C8AC-B1730B023077}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1AFD151-ACFB-BDC3-C8AC-B1730B023077}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
