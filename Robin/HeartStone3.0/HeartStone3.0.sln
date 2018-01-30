@@ -1,10 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-<<<<<<< HEAD
-# Visual Studio 2015
-=======
 # Visual Studio 2017
->>>>>>> 5b239391be4aad664e3ed0df39f609de04b1ea01
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeartStone3.0", "HeartStone3.0.csproj", "{F1AFD151-ACFB-BDC3-C8AC-B1730B023077}"
 EndProject
 Global
